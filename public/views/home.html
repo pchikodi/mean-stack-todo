@@ -1,0 +1,25 @@
+<!-- public/views/home.html -->
+
+<div class="jumbotron">
+	<div id="todo-list" class="row">
+		<p ng:if="todos.length > 0">My Todo's</p>
+		<p ng:if="todos.length == 0">Create a Todo</p>
+		<div style="padding-left:15px" class="row" ng-repeat="todo in todos">
+			<div class="col-sm-4">
+				<label style="float:left">
+					<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.name }}
+				</label>
+			</div>
+		</div>
+	</div>
+
+	<!-- CREATE TODOS -->
+	<div id="create-todo" class="row">
+		<div class="col-sm-8">
+			<input type="text" class="form-control" placeholder="My next Todo" ng-model="newTodo.name">
+		</div>
+		<div class="col-sm-2">
+			<button type="submit" class="btn btn-primary" ng-click="createTodo()">Add</button>
+		</div>
+	</div>
+</div>
